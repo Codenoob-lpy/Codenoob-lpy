@@ -1,7 +1,11 @@
-#include <iostream>
 #include "functions.h"
-#include <string>
-#include <fstream>
-#include <cstdlib>
-#include <sstream>
-using namespace std;
+
+
+//cd /mnt/c/Users/chany/Documents/GitHub/engg1340project
+//g++ -pedantic-errors -std=c++11 3.cpp -o a
+int main()
+{
+    
+
+    return 0;
+}

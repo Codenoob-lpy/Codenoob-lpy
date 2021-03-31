@@ -1,30 +1,31 @@
-#include <iostream>
 #include "functions.h"
-#include <string>
-#include <fstream>
-#include <cstdlib>
-#include <sstream>
-using namespace std;
+
 
 void newcharacter()
 {
-    string name;
     cout << "Character name: ";
-    cin >> name;
-    string newfilename =  name + ".txt";
+    string newname;
+    cin >> newname;
+    string newfilename =  newname + ".txt";
+    int newseed;
+    cin >> newseed;
     ofstream newfile (newfilename);
 
-    int health = 100;
-    int hunger = 0;
-    int mana = 20;
-    double crit = 0;
+    int newturn = 0; // the number of iterations of rng the character is currently in
+    int newhealth = 100;
+    int newhunger = 0;
+    int newmana = 20;
+    double newcrit = 0;
     
-    newfile << name << endl;
-    newfile << health << endl;
-    newfile << hunger << endl;
-    newfile << crit << endl;
+    newfile << newname << endl;
+    newfile << newseed << endl;
+    newfile << newturn << endl;
+    newfile << newhealth << endl;
+    newfile << newhunger << endl;
+    newfile << newmana << endl;
+    newfile << newcrit << endl;
 
     newfile << "inventory slots: 10 starting from the next line" << endl;
 
-
+    
 }
