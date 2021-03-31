@@ -1,0 +1,8 @@
+abc
+902193
+0
+100
+0
+20
+0
+inventory slots: 10 starting from the next line

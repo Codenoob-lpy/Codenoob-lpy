@@ -8,6 +8,7 @@ void newcharacter()
     cin >> newname;
     string newfilename =  newname + ".txt";
     int newseed;
+    cout << "Enter seed (leave empty for random seed): ";
     cin >> newseed;
     ofstream newfile (newfilename);
 
@@ -27,5 +28,8 @@ void newcharacter()
 
     newfile << "inventory slots: 10 starting from the next line" << endl;
 
+
+
+    newfile.close();
     
 }

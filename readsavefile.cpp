@@ -1,8 +1,11 @@
 #include "functions.h"
 
 
-void readsavefile(string playername)
+infostruct readsavefile()
 {
+    string playername;
+    cout << "Enter character name: ";
+    cin >> playername;
     string filename = playername + ".txt";
     ifstream fin;
 	fin.open(filename);
@@ -13,26 +16,44 @@ void readsavefile(string playername)
 
     int linenumber = 0;
     string line;
+    
+    string getname;
+    int getseed;
+    int getturn;
+    int gethealth;
+    int gethunger;
+    int getmana;
+    double getcrit;
     while ( getline(fin, line) )
     {
         if (linenumber == 0)
-            string name = line;
+            getname = line;
         if (linenumber == 2)
-            int seed = stoi(line);
+            getseed = stoi(line);
         if (linenumber == 2)
-            int turn = stoi(line);
+            getturn = stoi(line);
         if (linenumber == 3)
-            int health = stoi(line);
+            gethealth = stoi(line);
         if (linenumber == 4)
-            int hunger = stoi(line);
+            gethunger = stoi(line);
         if (linenumber == 5)
-            int mana = stoi(line);
+            getmana = stoi(line);
         if (linenumber == 6)
-            double crit = stoi(line);
+            getcrit = stod(line);
         linenumber++;
     }
 
+    infostruct returnthis;
+    returnthis.name = getname;
+    returnthis.seed = getseed;
+    returnthis.turn = getturn; // the number of iterations of rng the character is currently in
+    returnthis.health = gethealth;
+    returnthis.hunger = gethunger;
+    returnthis.mana = getmana;
+    returnthis.crit = getcrit;
+
 
     fin.close();
-    
+
+    return returnthis;
 }
