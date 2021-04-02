@@ -54,5 +54,6 @@ struct infostruct //use this struct tempalte to pass game status into / out of s
 void welcome();
 void newcharacter();
 infostruct readsavefile();
+void savegame(infostruct character);
 
 #endif
