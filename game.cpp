@@ -10,8 +10,15 @@ int main()
     int turn; // the number of iterations of rng the character is currently in
     int health;
     int hunger;
-    int mana;
+    int maxhealth;
     double crit;
+    double level;
+    double speed;
+    weapon currentweapon;
+    armor head;
+    armor chest;
+    armor leg;
+    armor boots;
     
     // spash screen
     welcome();
@@ -39,8 +46,13 @@ int main()
     turn = readstruct.turn;
     health = readstruct.health;
     hunger = readstruct.hunger;
-    mana = readstruct.mana;
+    maxhealth = readstruct.maxhealth;
     crit = readstruct.crit;
+    currentweapon = readstruct.currentweapon;
+    head = readstruct.head;
+    chest = readstruct.chest;
+    leg = readstruct.leg;
+    boots = readstruct.boots;
     //
 
 

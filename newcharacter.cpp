@@ -15,18 +15,30 @@ void newcharacter()
     int newturn = 0; // the number of iterations of rng the character is currently in
     int newhealth = 100;
     int newhunger = 0;
-    int newmana = 20;
+    int newmaxhealth = 100;
     double newcrit = 0;
+    double level = 1;
+    double speed = 1;
     
     newfile << newname << endl;
     newfile << newseed << endl;
     newfile << newturn << endl;
     newfile << newhealth << endl;
     newfile << newhunger << endl;
-    newfile << newmana << endl;
+    newfile << newmaxhealth << endl;
     newfile << newcrit << endl;
-
-    newfile << "inventory slots: 10 starting from the next line" << endl;
+    newfile << level << endl;
+    newfile << speed << endl;
+    //equipment
+    newfile << "wooden_sword 1 none"<< endl; // weapon
+    //format: "armor_name type(e.g. head(means helmet)) defense effect" example: "abc_chestplate chest 1 none"
+    newfile << endl; // head 
+    newfile << endl; // chest 
+    newfile << endl; // leg
+    newfile << endl; // boots
+    //end of equipment
+    //
+     
 
 
 
