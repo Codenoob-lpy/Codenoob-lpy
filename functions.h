@@ -6,6 +6,8 @@
 #include <fstream>
 #include <cstdlib>
 #include <sstream>
+#include <ctime>
+
 using namespace std;
 
 

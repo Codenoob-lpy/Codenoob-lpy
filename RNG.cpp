@@ -1,11 +1,4 @@
-#include <iostream>
 #include "functions.h"
-#include <string>
-#include <fstream>
-#include <cstdlib>
-#include <ctime>
-#include <sstream>
-using namespace std;
 
 // this func can be used for generating a random number
 // the number can be used for deciding what event will happen 
