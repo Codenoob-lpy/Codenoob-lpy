@@ -57,5 +57,6 @@ void welcome();
 void newcharacter();
 infostruct readsavefile();
 void savegame(infostruct character);
+int rng ();
 
 #endif
