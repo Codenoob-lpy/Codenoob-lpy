@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <sstream>
 #include <ctime>
+#include <vector>
 
 using namespace std;
 
