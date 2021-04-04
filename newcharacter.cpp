@@ -15,7 +15,7 @@ void newcharacter()
     ofstream newfile (newfilename);
 
     int health = 100;
-    int hunger = 0;
+    int hunger = 100;     //shd start from 100 ? it would be better to make reduction
     int mana = 20;
     double crit = 0;
     
