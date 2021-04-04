@@ -36,6 +36,14 @@ struct armor
     string effect;
 };
 
+struct monster
+{
+    string name;
+    int attack;
+    int defense;
+    int speed;
+};
+
 struct infostruct //use this struct tempalte to pass game status into / out of save file
 {
     string name;
