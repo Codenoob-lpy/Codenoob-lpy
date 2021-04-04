@@ -1,7 +1,35 @@
-#include <iostream>
 #include "functions.h"
-#include <string>
-#include <fstream>
-#include <cstdlib>
-#include <sstream>
-using namespace std;
+
+
+//cd /mnt/c/Users/chany/Documents/GitHub/engg1340project
+int main()
+{
+      
+    // spash screen
+    welcome();
+    // 
+
+    //
+    string input;
+    cout << "Press N to create new character / L to load existing game: ";
+    cin >> input;
+    while (input != "n" && input != "N" && input != "l" && input != "L")
+    {
+        cin >> input;
+    }
+    if (input == "n" || input == "N")
+    {
+        newcharacter();
+        cout << "New character created!!" << endl;
+    } 
+    //
+
+    //  read save file to initialize character data
+    infostruct character = readsavefile();
+    
+    //
+
+
+    
+    return 0;
+}
