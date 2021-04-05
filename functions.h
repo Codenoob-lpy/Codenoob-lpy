@@ -67,5 +67,6 @@ void newcharacter();
 infostruct readsavefile();
 void savegame(infostruct character);
 int rng ();
+void monster_sponser();
 
 #endif
