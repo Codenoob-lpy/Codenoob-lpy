@@ -8,6 +8,7 @@
 #include <sstream>
 #include <ctime>
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -66,7 +67,7 @@ void welcome();
 void newcharacter();
 infostruct readsavefile();
 void savegame(infostruct character);
-int rng ();
-void monster_sponser();
+int rng (int seed, int turn);
+void monster_sponsor();
 
 #endif
