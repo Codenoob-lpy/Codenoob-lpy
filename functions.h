@@ -69,5 +69,6 @@ infostruct readsavefile();
 void savegame(infostruct character);
 int rng (int seed, int turn);
 void monster_sponsor();
+weapon randomweapon(int rngoutput, int turn, int level);
 
 #endif
