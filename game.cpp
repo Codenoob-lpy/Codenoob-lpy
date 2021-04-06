@@ -29,7 +29,13 @@ int main()
     
     //
 
-
+    while (character.health != 0)
+    {
+        int rng = RNG(character.seed, character.turn);
+        character = event(rng, character);
+        
+        character.turn++;
+    }
     
     return 0;
 }

@@ -1,19 +1,23 @@
 #include "functions.h"
 
-weapon randomweapon(int rngoutput, int turn, int level)
+armor randomarmor(int rngoutput, int turn, int level)
 {
     char vowel[] = {'a','e', 'i', 'o', 'u'};
     string suffix[] = {"'s",""};
-    string types[] = {"sword","spear","lance","shortsword", "longsword", "dagger", "axe", "waraxe", "hammer", "katana", "flail", "bat", "stick", "staff", "whip", "saber", "cutlass"};
+    string maintypes[] = {"head", "chest", "leg", "boots"};
+    string headtypes[] = {"helmet","hat","headgear","visor"}; 
+    string chesttypes[] = {"chestplate", "tunic", "chainmail", "suit"}; 
+    string legtypes[] = {"leggings", "pants", "trousers", "shorts",}; 
+    string bootstypes[] = {"boots", "shoes"};
     string effects[] = {"none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "blessed", "cursed", "epic", "broken", "ancient", "weak", "legendary"};
-    weapon result;
+    armor result;
     
     srand(rngoutput);
     
 
     int stringsize = rand() % 10 + 1;
     string name;
-    int damage;
+    int defense;
     string effect;
     srand(rngoutput);
     for (int i = 0; i < stringsize; i++)
@@ -35,18 +39,32 @@ weapon randomweapon(int rngoutput, int turn, int level)
         }       
         name += x;       
     }
-    string type =  types[rand() % 16];
+    string maintype  =  maintypes[rand() % 3];
+    string type;
+    if (maintype == "head")
+        type =  headtypes[rand() % 3];
+    if (maintype == "chest")
+        type =  chesttypes[rand() % 3];
+    if (maintype == "leg")
+        type =  legtypes[rand() % 3];
+    if (maintype == "boots")
+        type =  bootstypes[rand() % 3];
+         
+
+
+    
     string s = suffix[rand() % 2];
     if (s == "'s")
         name = name + s + ' ' + type; 
     else
         name = type + " of " + name;
     double formula = (rand() % 5) * 1 * 0.75 + 1;
-    damage = (int)formula;
+    defense = (int)formula;
     effect =  effects[rand() % 19];
     
     result.name = name;
-    result.damage = damage;
+    result.type = maintype;
+    result.defense = defense;    
     result.effect = effect;
 
 

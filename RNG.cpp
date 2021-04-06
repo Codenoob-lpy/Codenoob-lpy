@@ -13,10 +13,10 @@ int rng (){
     return randomNumber;
 }
 */
-int rng (int seed, int turn) // can't think of other ways to generate nth number in random sequence (because need to restore when opening a saved game) without for looping all over again, if not suitable then use your rng above
+int RNG (int seed, int turn) // can't think of other ways to generate nth number in random sequence (because need to restore when opening a saved game) without for looping all over again, if not suitable then use your rng above
 {
     default_random_engine gen ((unsigned) seed);
     gen.discard(turn);
-    int result = gen() % 100;
+    int result = gen() % 999999;
     return result;
 }
