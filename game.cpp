@@ -32,6 +32,7 @@ int main()
     while (character.health != 0)
     {
         int rng = RNG(character.seed, character.turn);
+        status(character);
         character = event(rng, character);
         
         character.turn++;

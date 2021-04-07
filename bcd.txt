@@ -1,14 +1,14 @@
 bcd
-31
-54
+64
+64
 100
 0
 100
 0
-5.75
+7
 1
-dagger_of_Rg 65 broken
-helmet_of_Muiqxirii head 48 none
+W's_flail 71 ancient
+Gjaplezoe's_headgear head 66 blessed
 chainmail_of_Lgiuke chest 56 none
-Dnibloitau's_pants leg 66 none
+leggings_of_Bzok leg 69 none
 0 0 0 0
