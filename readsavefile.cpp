@@ -9,9 +9,13 @@ infostruct readsavefile()
     string filename = playername + ".txt";
     ifstream fin;
 	fin.open(filename);
-    if ( fin.fail() )
+    while ( fin.fail() )
     {
-        exit(1);
+        cout << "Save not found!\n";
+        cout << "Enter character name: ";
+        cin >> playername;
+        string filename = playername + ".txt";
+        fin.open(filename);
     }
 
     int linenumber = 0;

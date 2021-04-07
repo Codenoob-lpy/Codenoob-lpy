@@ -72,5 +72,6 @@ void monster_sponsor();
 weapon randomweapon(int rngoutput, int turn, int level);
 armor randomarmor(int rngoutput, int turn, int level);
 infostruct event(int rng, infostruct character);
+void genericinput(string input, infostruct character);
 
 #endif

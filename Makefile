@@ -17,7 +17,9 @@ randomarmor.o: randomarmor.cpp functions.h
 	g++ $(FLAGS) -c $<
 event.o: event.cpp functions.h
 	g++ $(FLAGS) -c $<
+genericinput.o: genericinput.cpp functions.h
+	g++ $(FLAGS) -c $<
 game.o: game.cpp functions.h
 	g++ $(FLAGS) -c $<
-game: game.o welcome.o newcharacter.o readsavefile.o savegame.o RNG.o monster_sponsor.o randomweapon.o randomarmor.o event.o
+game: game.o welcome.o newcharacter.o readsavefile.o savegame.o RNG.o monster_sponsor.o randomweapon.o randomarmor.o event.o genericinput.o
 	g++ $(FLAGS) $^ -o $@

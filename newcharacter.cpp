@@ -35,10 +35,10 @@ void newcharacter()
     //equipment
     newfile << "wooden_sword 1 none"<< endl; // weapon
     //format: "armor_name type(e.g. head(means helmet)) defense effect" example: "abc_chestplate chest 1 none"
-    newfile << endl; // head 
-    newfile << endl; // chest 
-    newfile << endl; // leg
-    newfile << endl; // boots
+    newfile << "0 0 0 0" << endl; // head 
+    newfile << "0 0 0 0" << endl; // chest 
+    newfile << "0 0 0 0" << endl; // leg
+    newfile << "0 0 0 0" << endl; // boots
     //end of equipment
     //
      

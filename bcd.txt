@@ -1,0 +1,14 @@
+bcd
+31
+54
+100
+0
+100
+0
+5.75
+1
+dagger_of_Rg 65 broken
+helmet_of_Muiqxirii head 48 none
+chainmail_of_Lgiuke chest 56 none
+Dnibloitau's_pants leg 66 none
+0 0 0 0

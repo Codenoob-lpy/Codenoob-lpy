@@ -58,7 +58,7 @@ armor randomarmor(int rngoutput, int turn, int level)
         name = name + s + '_' + type; 
     else
         name = type + "_of_" + name;
-    double formula = (rand() % 5) * 1 * 0.75 + 1;
+    double formula = (rand() % 5) * level * 0.75 + turn;
     defense = (int)formula;
     effect =  effects[rand() % 19];
     
