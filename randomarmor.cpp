@@ -55,9 +55,9 @@ armor randomarmor(int rngoutput, int turn, int level)
     
     string s = suffix[rand() % 2];
     if (s == "'s")
-        name = name + s + ' ' + type; 
+        name = name + s + '_' + type; 
     else
-        name = type + " of " + name;
+        name = type + "_of_" + name;
     double formula = (rand() % 5) * 1 * 0.75 + 1;
     defense = (int)formula;
     effect =  effects[rand() % 19];

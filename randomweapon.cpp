@@ -38,9 +38,9 @@ weapon randomweapon(int rngoutput, int turn, int level)
     string type =  types[rand() % 16];
     string s = suffix[rand() % 2];
     if (s == "'s")
-        name = name + s + ' ' + type; 
+        name = name + s + '_' + type; 
     else
-        name = type + " of " + name;
+        name = type + "_of_" + name;
     double formula = (rand() % 5) * 1 * 0.75 + 1;
     damage = (int)formula;
     effect =  effects[rand() % 19];
