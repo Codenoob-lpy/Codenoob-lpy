@@ -1,6 +1,6 @@
 #include "functions.h"
 
-monster monster_sponser(int turn){
+monster monster_sponser(int turn, int rngoutput){
     monster current;
     char vowel[] = {'a','e', 'i', 'o', 'u'};
     int stringsize = rand() % 10 + 1;
@@ -9,6 +9,7 @@ monster monster_sponser(int turn){
     current.defense = 0;
     current.speed = 1; 
     current.health = 10;   
+    srand(rngoutput);
     for (int i = 0; i < stringsize; i++)
     {
         char x;
