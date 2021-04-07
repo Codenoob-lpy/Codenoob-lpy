@@ -21,7 +21,7 @@ void newcharacter()
     int newmaxhealth = 100;
     double newcrit = 0;
     double level = 1;   // do we have any exp system?
-    double speed = 1;
+    double speed = 5;   // would be better to start at 5
     
     newfile << newname << endl;
     newfile << newseed << endl;

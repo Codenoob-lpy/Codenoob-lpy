@@ -69,7 +69,7 @@ void newcharacter();
 infostruct readsavefile();
 void savegame(infostruct character);
 int RNG (int seed, int turn);
-void monster_sponsor();
+monster monster_sponsor(int turn);
 weapon randomweapon(int rngoutput, int turn, int level);
 armor randomarmor(int rngoutput, int turn, int level);
 infostruct event(int rng, infostruct character);
