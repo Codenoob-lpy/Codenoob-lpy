@@ -43,6 +43,7 @@ struct monster
     int attack;
     int defense;
     int speed;
+    int health;
 };
 
 struct infostruct //use this struct tempalte to pass game status into / out of save file
