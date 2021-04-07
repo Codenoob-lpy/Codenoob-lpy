@@ -5,7 +5,7 @@ infostruct event(int rng, infostruct character)
     if (rng % 2 == 0) // random wep
     {
         weapon loot = randomweapon(rng, character.turn, character.level);
-        cout << "You came across a chest and found " << loot.name << ". It does " << loot.damage << "damage.\nDo you want to discard your current weapon and use " << loot.name << "?\n";
+        cout << "You came across a chest and found " << loot.name << ". It does " << loot.damage << " damage.\nDo you want to discard your current weapon and use " << loot.name << "?\n";
         if (loot.effect != "none")
         {
             cout << "Enchantment: " << loot.effect;
@@ -14,7 +14,7 @@ infostruct event(int rng, infostruct character)
         string input;
         while (input != "n" && input != "N" && input != "Y" && input != "y")
         {
-            cout << endl;
+            
             genericinput(input, character);
             cout << "Type Y/N and press enter: ";
             cin >> input;
@@ -29,7 +29,7 @@ infostruct event(int rng, infostruct character)
     if (rng % 2 == 1) // random armor
     {
         armor loot = randomarmor(rng, character.turn, character.level);
-        cout << "You came across a chest and found " << loot.name << ". It has " << loot.defense << "defense.\nDo you want to discard your current " << loot.type << " armor and use " << loot.name << "?\n";
+        cout << "You came across a chest and found " << loot.name << ". It has " << loot.defense << " defense.\nDo you want to discard your current " << loot.type << " armor and use " << loot.name << "?\n";
         if (loot.effect != "none")
         {
             cout << "Enchantment: " << loot.effect;
@@ -38,7 +38,7 @@ infostruct event(int rng, infostruct character)
         string input;
         while (input != "n" && input != "N" && input != "Y" && input != "y")
         {
-            cout << endl;
+            
             genericinput(input, character);
             cout << "Type Y/N and press enter: ";
             cin >> input;

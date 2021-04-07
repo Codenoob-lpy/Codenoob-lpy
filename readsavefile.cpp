@@ -39,7 +39,7 @@ infostruct readsavefile()
     {
         if (linenumber == 0)
             getname = line;
-        if (linenumber == 2)
+        if (linenumber == 1)
             getseed = stoi(line);
         if (linenumber == 2)
             getturn = stoi(line);
