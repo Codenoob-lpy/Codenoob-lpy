@@ -15,6 +15,9 @@ int main()
     cin >> input;
     while (input != "n" && input != "N" && input != "l" && input != "L")
     {
+        if (input == "quit" || input == "exit")
+            exit(EXIT_SUCCESS);
+        
         cin >> input;
     }
     if (input == "n" || input == "N")

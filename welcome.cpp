@@ -10,6 +10,6 @@ void welcome()
         cout << line << endl;
     }
     cout << endl;
-    cout << "Welcome to RNG DUNGEON!" << endl;
+    cout << "Welcome to RNG ADVENTURE!" << endl;
     fin.close();
 }
