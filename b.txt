@@ -1,14 +1,14 @@
 b
-0
-63
-100
+705899
 0
 100
 0
-4.75
+100
+0
+1
 5
-stick_of_Gqi 95 epic
-Gpe's_hat head 29 none
-La's_tunic chest 22 none
-U's_pants leg 16 none
+wooden_sword 1 none
+0 0 0 0
+0 0 0 0
+0 0 0 0
 0 0 0 0

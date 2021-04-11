@@ -61,7 +61,16 @@ armor randomarmor(int rngoutput, int turn, int level)
     double formula = (rand() % 5) * level * 1.5 + turn * 0.1 ;
     defense = (int)formula;
     effect =  effects[rand() % 19];
-    
+    if (effect == "cursed")
+        defense /= 2;
+    if (effect == "blessed")
+        defense *= 1.5;
+    if (effect == "epic")
+        defense *= 2;
+    if (effect == "legendary")
+        defense *= 4; 
+    if (effect == "broken")
+        defense /= 4;
     result.name = name;
     result.type = maintype;
     result.defense = defense;    

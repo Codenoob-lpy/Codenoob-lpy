@@ -2,7 +2,7 @@
 
 infostruct event(int rng, infostruct character)
 {
-    if (rng <= 350000 && rng > 250000) // random wep
+    if (rng <= 350000 && rng > 300000) // random wep
     {
         weapon loot = randomweapon(rng, character.turn, character.level);
         string name = loot.name;
@@ -61,6 +61,22 @@ infostruct event(int rng, infostruct character)
             character.level += 0.25;
         }
 
+    }
+    if (rng <= 100000 && rng > 50000) // heal to full health
+    {
+        cout << "You encounter a well. The water looks unusually pure. Do you want to drink it?\n";
+        string input;
+        while (input != "n" && input != "N" && input != "Y" && input != "y")
+        {
+            
+            genericinput(input, character);
+            cout << "Type Y/N and press enter: ";
+            cin >> input;
+        }
+        if (input == "Y" || input == "y" )
+        {
+            character.health = character.maxhealth;
+        }
     }
 
     return character;

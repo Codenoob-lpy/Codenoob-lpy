@@ -44,7 +44,16 @@ weapon randomweapon(int rngoutput, int turn, int level)
     double formula = (rand() % 20) * level + turn;
     damage = (int)formula;
     effect =  effects[rand() % 19];
-    
+    if (effect == "cursed")
+        damage /= 2;
+    if (effect == "blessed")
+        damage *= 1.5;
+    if (effect == "epic")
+        damage *= 2;
+    if (effect == "legendary")
+        damage *= 4; 
+    if (effect == "broken")
+        damage /= 4;   
     result.name = name;
     result.damage = damage;
     result.effect = effect;

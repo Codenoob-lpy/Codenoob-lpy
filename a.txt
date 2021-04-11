@@ -1,14 +1,14 @@
 a
+87180
+76
+151
 0
-168
-100
+151
 0
-100
-0
-7.5
+5.5
 5
-Uderget's_lance 223 none
-Juah's_headgear head 40 none
-chainmail_of_Ota chest 43 ancient
-Xdewvith's_leggings leg 58 none
+Rhoj's_lance 64 cursed
+Neaddewo's_hat head 24 none
+Mziejex's_tunic chest 23 ancient
+trousers_of_Knifx leg 74 epic
 0 0 0 0

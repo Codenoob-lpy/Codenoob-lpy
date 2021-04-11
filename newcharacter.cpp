@@ -8,8 +8,17 @@ void newcharacter()
     cin >> newname;
     string newfilename =  newname + ".txt";
     int newseed;
-    cout << "Enter seed (leave empty for random seed): ";
-    cin >> newseed;
+    string input;
+    cout << "Enter seed (enter 'r' for random seed): ";
+    cin >> input;
+    if (input == "r")
+    {
+        srand(time(0));
+        newseed = rand() % 999999;
+    }
+    else
+        newseed = stoi(input);
+    
     ofstream newfile (newfilename);
 
     int health = 100;
