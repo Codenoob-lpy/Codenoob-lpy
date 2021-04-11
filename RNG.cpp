@@ -13,10 +13,14 @@ int rng (){
     return randomNumber;
 }
 */
-int RNG (int seed, int turn) // can't think of other ways to generate nth number in random sequence (because need to restore when opening a saved game) without for looping all over again, if not suitable then use your rng above
+int RNG (int seed, int turn) // now uses normal distribution. maybe 350000 < rng < 550000 for monster to appear, so they are more common than other events now
 {
-    default_random_engine gen ((unsigned) seed);
+    mt19937_64 gen ((unsigned) seed);
     gen.discard(turn);
-    int result = gen() % 999999;
+    int temp = gen() % 999999;
+    mt19937_64 gen2 (temp);
+    gen2.discard(turn);
+    normal_distribution<double> dist(500000,150000);    
+    int result = dist(gen2);
     return result;
 }

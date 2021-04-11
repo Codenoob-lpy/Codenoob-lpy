@@ -1,0 +1,14 @@
+a
+0
+168
+100
+0
+100
+0
+7.5
+5
+Uderget's_lance 223 none
+Juah's_headgear head 40 none
+chainmail_of_Ota chest 43 ancient
+Xdewvith's_leggings leg 58 none
+0 0 0 0

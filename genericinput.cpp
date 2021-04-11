@@ -10,7 +10,7 @@ void genericinput(string input, infostruct character)
     }
     if (input == "help")
     {
-        cout << "Commands:\n\nGeneral";
+        cout << "\nCommands:\n\nGeneral\n";
         cout << "> save / quit: saves and quits the game\n";
         cout << "> help: shows a list of available commands\n";
         cout << "> about: about the game\n";

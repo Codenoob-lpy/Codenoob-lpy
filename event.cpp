@@ -2,13 +2,15 @@
 
 infostruct event(int rng, infostruct character)
 {
-    if (rng % 2 == 0) // random wep
+    if (rng <= 350000 && rng > 250000) // random wep
     {
         weapon loot = randomweapon(rng, character.turn, character.level);
-        cout << "You came across a chest and found " << loot.name << ". It does " << loot.damage << " damage.\nDo you want to discard your current weapon and use " << loot.name << "?\n";
+        string name = loot.name;
+        replace( name.begin(), name.end(), '_', ' ');
+        cout << "You came across a chest and found " << name << ". It does " << loot.damage << " damage.\nDo you want to discard your current weapon and use " << name << "?\n";
         if (loot.effect != "none")
         {
-            cout << "Enchantment: " << loot.effect;
+            cout << "Enchantment: " << loot.effect << endl;
         }
         
         string input;
@@ -26,13 +28,15 @@ infostruct event(int rng, infostruct character)
         }
 
     }
-    if (rng % 2 == 1) // random armor
+    if (rng <= 650000 && rng > 550000) // random armor
     {
         armor loot = randomarmor(rng, character.turn, character.level);
-        cout << "You came across a chest and found " << loot.name << ". It has " << loot.defense << " defense.\nDo you want to discard your current " << loot.type << " armor and use " << loot.name << "?\n";
+        string name = loot.name;
+        replace( name.begin(), name.end(), '_', ' ');
+        cout << "You came across a chest and found " << name << ". It has " << loot.defense << " defense.\nDo you want to discard your current " << loot.type << " armor and use " << name << "?\n";
         if (loot.effect != "none")
         {
-            cout << "Enchantment: " << loot.effect;
+            cout << "Enchantment: " << loot.effect << endl;
         }
         
         string input;
