@@ -20,7 +20,7 @@ int RNG (int seed, int turn) // now uses normal distribution. maybe 350000 < rng
     int temp = gen() % 999999;
     mt19937_64 gen2 (temp);
     gen2.discard(turn);
-    normal_distribution<double> dist(500000,150000);    
+    normal_distribution<double> dist(500000,150000);    //median = 500000, standard deviation = 150000
     int result = dist(gen2);
     return result;
 }

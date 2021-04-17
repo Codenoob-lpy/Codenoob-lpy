@@ -39,16 +39,16 @@ armor randomarmor(int rngoutput, int turn, int level)
         }       
         name += x;       
     }
-    string maintype  =  maintypes[rand() % 3];
+    string maintype  =  maintypes[rand() % 4];
     string type;
     if (maintype == "head")
-        type =  headtypes[rand() % 3];
+        type =  headtypes[rand() % 4];
     if (maintype == "chest")
-        type =  chesttypes[rand() % 3];
+        type =  chesttypes[rand() % 4];
     if (maintype == "leg")
-        type =  legtypes[rand() % 3];
+        type =  legtypes[rand() % 4];
     if (maintype == "boots")
-        type =  bootstypes[rand() % 3];
+        type =  bootstypes[rand() % 2];
          
 
 
@@ -62,7 +62,7 @@ armor randomarmor(int rngoutput, int turn, int level)
     defense = (int)formula;
     effect =  effects[rand() % 19];
     if (effect == "cursed")
-        defense /= 2;
+        defense /= 1.5;
     if (effect == "blessed")
         defense *= 1.5;
     if (effect == "epic")

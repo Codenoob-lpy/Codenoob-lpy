@@ -1,14 +1,14 @@
 a
 87180
-76
-151
+456
+896
 0
-151
+896
 0
-5.5
+16.9375
 5
-Rhoj's_lance 64 cursed
-Neaddewo's_hat head 24 none
-Mziejex's_tunic chest 23 ancient
-trousers_of_Knifx leg 74 epic
-0 0 0 0
+K's_saber 583 none
+Mwaryib's_visor head 250 epic
+Bfoytayf's_suit chest 140 none
+pants_of_Kdeihec leg 123 ancient
+Oyekgazvo's_shoes boots 117 weak

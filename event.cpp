@@ -10,7 +10,7 @@ infostruct event(int rng, infostruct character)
         cout << "You came across a chest and found " << name << ". It does " << loot.damage << " damage.\nDo you want to discard your current weapon and use " << name << "?\n";
         if (loot.effect != "none")
         {
-            cout << "Enchantment: " << loot.effect << endl;
+            cout << "You feel a presence of magic within this weapon."<< endl;
         }
         
         string input;
@@ -25,6 +25,24 @@ infostruct event(int rng, infostruct character)
         {
             character.currentweapon = loot;
             character.level += 0.25;
+
+            if (loot.effect != "none")
+            {
+                cout << "This weapon is " << loot.effect << "!" << endl;
+                if (loot.effect == "blessed")
+                {
+                    character.health += (rand() % 200);
+                    character.level *= 1.25;
+                    cout << "The blessed weapon empowers you! You feel better!\n";
+                }
+                if (loot.effect == "cursed")
+                {
+                    character.health -= (rand() % 20);
+                    character.level *= 0.8;
+                    cout << "The cursed weapon sucks away your life force! You don't feel so good...\n";
+                }
+                
+            }
         }
 
     }
@@ -36,7 +54,7 @@ infostruct event(int rng, infostruct character)
         cout << "You came across a chest and found " << name << ". It has " << loot.defense << " defense.\nDo you want to discard your current " << loot.type << " armor and use " << name << "?\n";
         if (loot.effect != "none")
         {
-            cout << "Enchantment: " << loot.effect << endl;
+            cout << "You feel a presence of magic within this armor."<< endl;
         }
         
         string input;
@@ -59,6 +77,25 @@ infostruct event(int rng, infostruct character)
                 character.boots = loot;
             
             character.level += 0.25;
+
+            if (loot.effect != "none")
+            {
+                cout << "This armor is " << loot.effect << "!" << endl;
+                if (loot.effect == "blessed")
+                {
+                    character.health += (rand() % 300);
+                    character.maxhealth += (rand() % 30);
+                    character.level *= 1.25;
+                    cout << "The blessed armor invigorates you! You feel better!\n";
+                }
+                if (loot.effect == "cursed")
+                {
+                    character.health -= (rand() % 25);
+                    character.level *= 0.8;
+                    cout << "The cursed armor weakens you! You don't feel so good...\n";
+                }
+                
+            }
         }
 
     }
@@ -76,6 +113,7 @@ infostruct event(int rng, infostruct character)
         if (input == "Y" || input == "y" )
         {
             character.health = character.maxhealth;
+            cout << "You feel much better!\n";
         }
     }
 
