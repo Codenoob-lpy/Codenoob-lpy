@@ -10,6 +10,8 @@
 #include <vector>
 #include <random>
 #include <algorithm>
+#include <cstdio>
+#include <cstring>
 
 using namespace std;
 

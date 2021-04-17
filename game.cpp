@@ -32,7 +32,7 @@ int main()
     
     //
 
-    while (character.health != 0)
+    while (character.health > 0)
     {
         int rng = RNG(character.seed, character.turn);
         cout << rng << endl; // debug
@@ -43,6 +43,20 @@ int main()
             character.health += (int)(character.level) * 0.2;
         
         character.turn++;
+    }
+    if (character.health <= 0)
+    {
+        int score = (int) (character.level * character.turn);
+        cout << "YOU DIED!!!\nScore: " << score << endl;
+        string temp = character.name + ".txt";
+        char * removefile = new char [temp.length() + 1];
+        strcpy(removefile, temp.c_str());
+        remove(removefile);
+
+
+        delete[] removefile;
+        cout << "Thank you for playing RNG ADVENTURE!\n"; 
+        
     }
     
     return 0;
