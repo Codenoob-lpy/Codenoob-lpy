@@ -25,7 +25,7 @@ infostruct readsavefile()
     int getseed;
     int getturn;
     int gethealth;
-    int gethunger;
+    int getcoins;
     int getmaxhealth;
     double getcrit;
     double getlevel;
@@ -46,7 +46,7 @@ infostruct readsavefile()
         if (linenumber == 3)
             gethealth = stoi(line);
         if (linenumber == 4)
-            gethunger = stoi(line);
+            getcoins = stoi(line);
         if (linenumber == 5)
             getmaxhealth = stoi(line);
         if (linenumber == 6)
@@ -163,7 +163,7 @@ infostruct readsavefile()
     returnthis.seed = getseed;
     returnthis.turn = getturn; // the number of iterations of rng the character is currently in
     returnthis.health = gethealth;
-    returnthis.hunger = gethunger;
+    returnthis.coins = getcoins;
     returnthis.maxhealth = getmaxhealth;
     returnthis.crit = getcrit;
     returnthis.level = getlevel;

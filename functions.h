@@ -55,7 +55,7 @@ struct infostruct //use this struct tempalte to pass game status into / out of s
     int seed;
     int turn; // the number of iterations of rng the character is currently in
     int health;
-    int hunger;
+    int coins;
     int maxhealth;
     double crit;
     double level;
@@ -78,5 +78,6 @@ armor randomarmor(int rngoutput, int turn, int level);
 infostruct event(int rng, infostruct character);
 void genericinput(string input, infostruct character);
 void status(infostruct character);
+infostruct blacksmith (infostruct character, int rng);
 
 #endif

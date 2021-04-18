@@ -116,6 +116,10 @@ infostruct event(int rng, infostruct character)
             cout << "You feel much better!\n";
         }
     }
+    if (rng <= 750000 && rng > 650000)
+    {
+        character = blacksmith(character, rng);
+    }
 
     return character;
 }

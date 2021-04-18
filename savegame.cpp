@@ -9,7 +9,7 @@ void savegame(infostruct character)
     newfile << character.seed << endl;
     newfile << character.turn << endl;
     newfile << character.health << endl;
-    newfile << character.hunger << endl;
+    newfile << character.coins << endl;
     newfile << character.health << endl;
     newfile << character.crit << endl;
     newfile << character.level << endl;

@@ -1,14 +1,14 @@
 a
 87180
-456
-896
+639
+3879
+9034
+3879
 0
-896
-0
-16.9375
+73.8931
 5
-K's_saber 583 none
-Mwaryib's_visor head 250 epic
-Bfoytayf's_suit chest 140 none
-pants_of_Kdeihec leg 123 ancient
-Oyekgazvo's_shoes boots 117 weak
+flail_of_Izepneoti 2473 none
+E's_headgear head 666 epic
+Srojveazi's_chestplate chest 480 blessed
+Tpihgeam's_shorts leg 295 blessed
+boots_of_Wroeaaw boots 403 blessed

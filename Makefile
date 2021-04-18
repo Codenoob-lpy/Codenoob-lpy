@@ -21,7 +21,9 @@ genericinput.o: genericinput.cpp functions.h
 	g++ $(FLAGS) -c $<
 status.o: status.cpp functions.h
 	g++ $(FLAGS) -c $<
+blacksmith.o: blacksmith.cpp functions.h
+	g++ $(FLAGS) -c $<
 game.o: game.cpp functions.h
 	g++ $(FLAGS) -c $<
-game: game.o welcome.o newcharacter.o readsavefile.o savegame.o RNG.o monster_sponsor.o randomweapon.o randomarmor.o event.o genericinput.o status.o
+game: game.o welcome.o newcharacter.o readsavefile.o savegame.o RNG.o monster_sponsor.o randomweapon.o randomarmor.o event.o genericinput.o status.o blacksmith.o
 	g++ $(FLAGS) $^ -o $@
