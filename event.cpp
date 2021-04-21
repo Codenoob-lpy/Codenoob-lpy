@@ -46,7 +46,9 @@ infostruct event(int rng, infostruct character)
         }
 
     }
-    if (rng <= 650000 && rng > 550000) // random armor
+    if (rng <= 850000 && rng > 800000) // random armor 
+    // suggest to change upper limitation to 350000 + 500000 = 850000 and lower to 300000 + 500000 = 800000
+    // main reason of adjustment is to keep same probability( normal distirbution )
     {
         armor loot = randomarmor(rng, character.turn, character.level);
         string name = loot.name;
@@ -120,6 +122,9 @@ infostruct event(int rng, infostruct character)
     {
         character = blacksmith(character, rng);
     }
+    if (rng <= 650000 && rng > 550000)
+    {
 
+    }
     return character;
 }
