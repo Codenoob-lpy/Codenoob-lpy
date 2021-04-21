@@ -38,10 +38,11 @@ int main()
         cout << rng << endl; // debug
         status(character);
         character = event(rng, character);
-        character.maxhealth += (int)(character.level) * 0.5; 
-        if (character.health + 1 <= character.maxhealth)
-            character.health += (int)(character.level) * 0.2;
-        
+        character.maxhealth += (int)(character.level) * 0.4;         
+        character.health += (int)(character.level) * 0.4;
+        if (character.health >= character.maxhealth)
+            character.health = character.maxhealth;
+
         character.turn++;
     }
     if (character.health <= 0)

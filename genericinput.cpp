@@ -6,6 +6,7 @@ void genericinput(string input, infostruct character)
     if (input == "save" || input == "quit")
     {
         savegame(character);
+        cout << "\nThank you for playing RNG ADVENTURE!\n";
         exit(EXIT_SUCCESS);
     }
     if (input == "help")

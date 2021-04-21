@@ -2,7 +2,7 @@ Group No.: 112
 Group members: Chan Yan Yin, Li Po Yan
 Topic: RNG adventure
   Generation of random game sets or events: Dungeon crawler where enemy and boss names and stats are randomly generated, as well as random loot and events
-  Data structures for storing game status: arrays
+  Data structures for storing game status: structs
   Dynamic memory management: dynamic array sizes
   File input/output (e.g., for loading/saving game status): Save files
   Program codes in multiple files: different features e.g. event generation have their own cpp files
@@ -18,13 +18,18 @@ Implemented features:
     The monsters and special events are all generated randomly.
 
     2.Data structures for storing game status
-    The player's charater status will be stored in the arrays.
+    The player's charater status will be stored in a struct.
     
     3.Dynamic memory management 
-    // still dont know what is this sor, i need to chase lecture //
+    Used in converting the save filename to c-string to operate deletion of save when the player dies.
     
     4.File input/output (e.g., for loading/saving game status)
-    The current status of character will be store into another file and the program will read the directory to find whether there is any previous record or not. 
+    The current status of character are stored into a txt file, which is created upon new character. The user inputs the player name and the program will search the directory for the specific save. When the game is quit the game overwrites the elements in the struct into the txt.
 
     5.Program codes in multiple files
-    The functions and main program will be spearate into two files, and we will also include ascii arts in text file which will be import aswell
+    The functions and main program are spearated into multiple cpp before compilation.
+
+Compilation and execution instructions:
+    1. Terminal command "make game"
+    2. ./game
+    3. Available commands are given ingame, type "help" to see all available commands
