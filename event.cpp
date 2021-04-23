@@ -124,7 +124,16 @@ infostruct event(int rng, infostruct character)
     }
     if (rng <= 650000 && rng > 550000)
     {
-
+        cout << "You see an elf. He seems welcome to new comer and asks you a question." << endl;
+        cout << '"' << "I can help you to enhance your speed and max health." << '"';
+        character.maxhealth += 10;
+        character.speed += 2; //dont sure that the status too high or what can be adjust
     }
+    if (rng <= 850000 && rng > 750000)
+    {
+        cout << "You see an evil. He seems welcome to new comer." << endl;
+        cout << '"' << "You are really unlucky to meet me. " << '"';
+        character.health -= 20;
+    } 
     return character;
 }
