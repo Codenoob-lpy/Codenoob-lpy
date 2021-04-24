@@ -296,7 +296,7 @@ infostruct event(int rng, infostruct character)
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
                         current_monster.health -= 10;
-
+                    }
                 }else {
                     if (character.currentweapon.damage - current_monster.defense > 0){
                         cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << "damages to the monster.\n";
@@ -304,6 +304,7 @@ infostruct event(int rng, infostruct character)
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
                         current_monster.health -= 10;
+                    }
                 }
             } else {
                 if (rand() % 100 <= character.crit){
@@ -314,6 +315,7 @@ infostruct event(int rng, infostruct character)
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
                         current_monster.health -= 10;
+                    }
 
                 }else {
                     if (character.currentweapon.damage - current_monster.defense > 0){
@@ -322,24 +324,24 @@ infostruct event(int rng, infostruct character)
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
                         current_monster.health -= 10;
+                    }
+                    if (current_monster.health == 0){
+                        break;
+                    }
+                    if (current_monster.attack - player_defense > 0){
+                        cout << "It hits you with " << current_monster.attack - player_defense <<" damages." << endl;
+                        character.health -= current_monster.attack - player_defense;
+                    }else{
+                        cout << "It hits you but you guard most of the damage because of sufficient defense." << endl;
+                        character.health -= 10;
+                    }
                 }
-                if (current_monster.health == 0){
-                    break;
-                }
-                if (current_monster.attack - player_defense > 0){
-                    cout << "It hits you with " << current_monster.attack - player_defense <<" damages." << endl;
-                    character.health -= current_monster.attack - player_defense;
-                }else{
-                    cout << "It hits you but you guard most of the damage because of sufficient defense." << endl;
-                    character.health -= 10;
-                }
-            }
             battle_turn++;
-        }
+            }
 
         
-    }
+        }
 
     return character;
+    }
 }
-
