@@ -154,7 +154,11 @@ infostruct event(int rng, infostruct character)
         
         if (input == "weapon"){
             weapon product = randomweapon(rng, character.turn, character.level);
-            cout << "Here you are! It is a " << product.effect << ' '<< product.name << " and it can deal " << product.damage << " damages"<< endl;
+            if (product.effect != "none"){
+                cout << "Here you are! It is a " << product.effect << ' '<< product.name << " and it can deal " << product.damage << " damages"<< endl;
+            }else {
+                cout << "Here you are! It is a " << product.name << " and it can deal " << product.damage << " damages"<< endl;            
+            }
             if (product.effect == "cursed"){
                 price = 3 * character.level;
                 cout << "It is cheap and is worth "<< price << " coins\n";
@@ -205,7 +209,11 @@ infostruct event(int rng, infostruct character)
             genericinput(input, character);
         } else if (input == "armor"){
             armor product = randomarmor(rng, character.turn, character.level);
-            cout << "Here you are! It is a " << product.effect << ' '<< product.type << " armor and it can defense " << product.defense << endl;
+            if (product.effect != "none"){
+                cout << "Here you are! It is a " << product.effect << ' '<< product.type << " armor and it can defense " << product.defense << " damages"<< endl;
+            }else{
+                cout << "Here you are! It is a " << product.type << " armor and it can defense " << product.defense << " damages"<< endl;
+            }
             if (product.effect == "cursed"){
                 price = 3 * character.level;
                 cout << "It is cheap and is worth "<< price << " coins\n";
