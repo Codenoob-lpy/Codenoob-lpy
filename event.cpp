@@ -274,7 +274,7 @@ infostruct event(int rng, infostruct character)
         } else {
             cout << "You meet a boss monster " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
         }
-        while (current_monster.health != 0 and character.health != 0 ){
+        while (current_monster.health > 0 and character.health > 0 ){
             cout << "Turn " << battle_turn << " begins"<< endl;
             cout << "|monster hp: " << current_monster.health << " | player hp: " << character.health << " |\n";
             if (current_monster.speed > character.speed){
@@ -285,13 +285,13 @@ infostruct event(int rng, infostruct character)
                     cout << "It hits you but you guard most of the damage because of sufficient defense." << endl;
                     character.health -= 10;
                 }
-                if (character.health == 0){
+                if (character.health <= 0){
                     break;
                 }
                 if (rand() % 100 <= character.crit){
                     cout << "Lucky!! You make a critical hit!!" << endl;
                     if (character.currentweapon.damage * 2 - current_monster.defense > 0){
-                        cout << "You have dealt " << character.currentweapon.damage * 2 - current_monster.defense << "damages to the monster.\n";
+                        cout << "You have dealt " << character.currentweapon.damage * 2 - current_monster.defense << " damages to the monster.\n";
                         current_monster.health -= character.currentweapon.damage * 2 - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
@@ -299,7 +299,7 @@ infostruct event(int rng, infostruct character)
                     }
                 }else {
                     if (character.currentweapon.damage - current_monster.defense > 0){
-                        cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << "damages to the monster.\n";
+                        cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << " damages to the monster.\n";
                         current_monster.health -= character.currentweapon.damage - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
@@ -310,7 +310,7 @@ infostruct event(int rng, infostruct character)
                 if (rand() % 100 <= character.crit){
                     cout << "Lucky!! You make a critical hit!!" << endl;
                     if (character.currentweapon.damage * 2 - current_monster.defense > 0){
-                        cout << "You have dealt " << character.currentweapon.damage * 2 - current_monster.defense << "damages to the monster.\n";
+                        cout << "You have dealt " << character.currentweapon.damage * 2 - current_monster.defense << " damages to the monster.\n";
                         current_monster.health -= character.currentweapon.damage * 2 - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
@@ -319,13 +319,13 @@ infostruct event(int rng, infostruct character)
 
                 }else {
                     if (character.currentweapon.damage - current_monster.defense > 0){
-                        cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << "damages to the monster.\n";
+                        cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << " damages to the monster.\n";
                         current_monster.health -= character.currentweapon.damage - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
                         current_monster.health -= 10;
                     }
-                    if (current_monster.health == 0){
+                    if (current_monster.health <= 0){
                         break;
                     }
                     if (current_monster.attack - player_defense > 0){
