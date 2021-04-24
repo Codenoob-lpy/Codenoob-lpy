@@ -134,7 +134,7 @@ infostruct event(int rng, infostruct character)
     {
         cout << "You see a demon. He uses a knife to stabs your arm." << endl;
         cout << '"' << "You are really unlucky to meet me. " << '"';
-        character.health = character.health * 0.5;
+        character.health = character.health * 0.8;
     } 
     else if (rng <= 450000 && rng > 400000)
     {
@@ -184,24 +184,33 @@ infostruct event(int rng, infostruct character)
                 cin >> input;
             }
             if (input == "y"){
-                character.currentweapon = product;
-                character.coins -= price;
-                if (product.effect != "none")
-                {
-                    cout << "This weapon is " << product.effect << "!" << endl;
-                    if (product.effect == "blessed")
+                if (character.coins >= price){
+                    character.currentweapon = product;
+                    character.coins -= price;
+                    if (product.effect != "none")
                     {
-                        character.health += (rand() % 200);
-                        character.level *= 1.25;
-                        cout << "The blessed weapon empowers you! You feel better!\n";
+                        cout << "This weapon is " << product.effect << "!" << endl;
+                        if (product.effect == "blessed")
+                        {
+                            character.health += (rand() % 200);
+                            character.level *= 1.25;
+                            cout << "The blessed weapon empowers you! You feel better!\n";
+                        }
+                        if (product.effect == "cursed")
+                        {
+                            character.health -= (rand() % 20);
+                            character.level *= 0.8;
+                            cout << "The cursed weapon sucks away your life force! You don't feel so good...\n";
+                        }
+                        
                     }
-                    if (product.effect == "cursed")
-                    {
-                        character.health -= (rand() % 20);
-                        character.level *= 0.8;
-                        cout << "The cursed weapon sucks away your life force! You don't feel so good...\n";
+                }else{
+                    cout << "You found that you do not have enough coins!!" << endl;
+                    cout << "The merchant become mad suddenly and slap you immediately. You lose 2 health point.\n";
+                    character.health -= 2 ;
+                    if (character.health <= 0){
+                        cout << "You should be the weakest and worst player ever :p\n";
                     }
-                    
                 }
 
             }else{
@@ -240,33 +249,42 @@ infostruct event(int rng, infostruct character)
                 cin >> input;
             }
             if (input == "y"){
-                character.coins -= price;
-                if (product.type == "head")
-                    character.head = product;
-                if (product.type == "chest")
-                    character.chest = product;
-                if (product.type == "leg")
-                    character.leg = product;
-                if (product.type == "boots")
-                    character.boots = product;
-                if (product.effect != "none")
-                {
-                    cout << "This weapon is " << product.effect << "!" << endl;
-                    if (product.effect == "blessed")
+                if (character.coins >= price){
+                    character.coins -= price;
+                    if (product.type == "head")
+                        character.head = product;
+                    if (product.type == "chest")
+                        character.chest = product;
+                    if (product.type == "leg")
+                        character.leg = product;
+                    if (product.type == "boots")
+                        character.boots = product;
+                    if (product.effect != "none")
                     {
-                        character.health += (rand() % 200);
-                        character.level *= 1.25;
-                        cout << "The blessed weapon empowers you! You feel better!\n";
+                        cout << "This armor is " << product.effect << "!" << endl;
+                        if (product.effect == "blessed")
+                        {
+                            character.health += (rand() % 300);
+                            character.maxhealth += (rand() % 30);
+                            character.level *= 1.25;
+                            cout << "The blessed armor invigorates you! You feel better!\n";
+                        }
+                        if (product.effect == "cursed")
+                        {
+                            character.health -= (rand() % 25);
+                            character.level *= 0.8;
+                            cout << "The cursed armor weakens you! You don't feel so good...\n";
+                        }
+                        
                     }
-                    if (product.effect == "cursed")
-                    {
-                        character.health -= (rand() % 20);
-                        character.level *= 0.8;
-                        cout << "The cursed weapon sucks away your life force! You don't feel so good...\n";
+                } else {
+                    cout << "You found that you do not have enough coins!!" << endl;
+                    cout << "The merchant become mad suddenly and slap you immediately. You lose 2 health point.\n";
+                    character.health -= 2 ;
+                    if (character.health <= 0){
+                        cout << "You should be the weakest and worst player ever :p\n";
                     }
-                    
                 }
-                genericinput(input, character);
             }else{
                 cout << "You start your journey again." << endl;
             }
@@ -305,7 +323,7 @@ infostruct event(int rng, infostruct character)
                         current_monster.health -= character.currentweapon.damage * 2 - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
-                        current_monster.health -= 10;
+                        current_monster.health -= character.turn/10+1;
                     }
                 }else {
                     if (character.currentweapon.damage - current_monster.defense > 0){
@@ -313,7 +331,7 @@ infostruct event(int rng, infostruct character)
                         current_monster.health -= character.currentweapon.damage - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
-                        current_monster.health -= 10;
+                        current_monster.health -= character.turn/10+1;
                     }
                 }
             } else {
@@ -324,7 +342,7 @@ infostruct event(int rng, infostruct character)
                         current_monster.health -= character.currentweapon.damage * 2 - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
-                        current_monster.health -= 10;
+                        current_monster.health -= character.turn/10+1;
                     }
 
                 }else {
@@ -333,7 +351,7 @@ infostruct event(int rng, infostruct character)
                         current_monster.health -= character.currentweapon.damage - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
-                        current_monster.health -= 10;
+                        current_monster.health -= character.turn/10+1;
                     }
                     if (current_monster.health <= 0){
                         break;
@@ -343,15 +361,22 @@ infostruct event(int rng, infostruct character)
                         character.health -= current_monster.attack - player_defense;
                     }else{
                         cout << "It hits you but you guard most of the damage because of sufficient defense." << endl;
-                        character.health -= 10;
+                        character.health -= character.turn/10 + 1;
                     }
                 }
             battle_turn++;
             }
-
-        
         }
-
+        if (character.health > 0){
+            cout << "You have defeated the monster!! You find a bag of coins!!\n";
+            int money = (rand() % 30) * (character.turn / 10 + 1);
+            character.coins += money;
+            cout << "There are " << money << " coins inside.\n";
+            int hp = (rand() % 20) * (character.turn / 10 + 1);
+            character.health += hp;
+            cout << "You feel exhausted after the battle and you decide to have a short break.\n";
+            cout << "You feel better after the break( You have healed " << hp << " hp after the break).\n";
+        }
     
     }
     return character;
