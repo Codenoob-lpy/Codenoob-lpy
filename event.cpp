@@ -187,7 +187,7 @@ infostruct event(int rng, infostruct character)
         
     }else{
         monster current_monster = monster_sponsor(character.turn, rng);
-        cout << "You meet a monster " << current_monster << "!!!";
+        cout << "You meet a monster " << current_monster.name << "!!!";
         
     }
 

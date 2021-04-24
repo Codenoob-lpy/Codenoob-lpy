@@ -1,13 +1,13 @@
 a
 87180
-639
-3879
-9034
-3879
+668
+4781
+9029
+4781
 0
-73.8931
-5
-flail_of_Izepneoti 2473 none
+92.6789
+27
+flail_of_G 3055 blessed
 E's_headgear head 666 epic
 Srojveazi's_chestplate chest 480 blessed
 Tpihgeam's_shorts leg 295 blessed
