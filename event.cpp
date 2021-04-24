@@ -2,7 +2,7 @@
 
 infostruct event(int rng, infostruct character)
 {
-    if (rng <= 350000 && rng > 300000) // random wep
+    if (rng <= 200000 && rng > 0) // random wep
     {
         weapon loot = randomweapon(rng, character.turn, character.level);
         string name = loot.name;
@@ -46,8 +46,8 @@ infostruct event(int rng, infostruct character)
         }
 
     }
-    if (rng <= 850000 && rng > 800000) // random armor 
-    // suggest to change upper limitation to 350000 + 500000 = 850000 and lower to 300000 + 500000 = 800000
+    else if (rng <= 1000000 && rng > 800000) // random armor 
+    // suggest to change upper limitation to 1000000 - 0 = 1000000 and lower to 1000000 - 200000 = 800000
     // main reason of adjustment is to keep same probability( normal distirbution )
     {
         armor loot = randomarmor(rng, character.turn, character.level);
@@ -101,7 +101,7 @@ infostruct event(int rng, infostruct character)
         }
 
     }
-    if (rng <= 100000 && rng > 50000) // heal to full health
+    else if (rng <= 300000 && rng > 200000) // heal to full health
     {
         cout << "You encounter a well. The water looks unusually pure. Do you want to drink it?\n";
         string input;
@@ -118,24 +118,24 @@ infostruct event(int rng, infostruct character)
             cout << "You feel much better!\n";
         }
     }
-    if (rng <= 750000 && rng > 650000)
+    else if (rng <= 800000 && rng > 750000)
     {
         character = blacksmith(character, rng);
     }
-    if (rng <= 650000 && rng > 550000)
+    else if (rng <= 750000 && rng > 700000)
     {
-        cout << "You see an elf. She seems welcome to new comer and asks you a question." << endl;
+        cout << "You see an angel. She seems welcome to new comer and asks you a question." << endl;
         cout << '"' << "I can help you to enhance your speed and max health." << '"';
-        character.maxhealth += 10;
-        character.speed += 2; //dont sure that the status too high or what can be adjust
+        character.maxhealth += character.level / 10;
+        character.speed += character.level / 20; 
     }
-    if (rng <= 850000 && rng > 750000)
+    else if (rng <= 400000 && rng > 300000)
     {
-        cout << "You see an evil guy. He uses a knife to stabs your arm." << endl;
+        cout << "You see a demon. He uses a knife to stabs your arm." << endl;
         cout << '"' << "You are really unlucky to meet me. " << '"';
-        character.health -= 20;
+        character.health = character.health * 0.5;
     } 
-    if (rng <= 450000 && rng > 350000)
+    else if (rng <= 450000 && rng > 400000)
     {
         string input;
         int price;
@@ -146,12 +146,9 @@ infostruct event(int rng, infostruct character)
         cin >> input;
         while (input != "armors" && input != "weapons" && input != "n")
         {
-            
-            genericinput(input, character);
-            cout << "Tips: Please type 'armors' or 'weapons' if you want to buy\n";
-            cout << "Type 'n' if you do not want to buy anything: ";
             cin >> input;
         }
+        genericinput(input, character);
         
         if (input == "weapons"){
             weapon product = randomweapon(rng, character.turn, character.level);
@@ -188,6 +185,11 @@ infostruct event(int rng, infostruct character)
         
         
         
+    }else{
+        monster current_monster = monster_sponsor(character.turn, rng);
+        cout << "You meet a monster " << current_monster << "!!!";
+        
     }
+
     return character;
 }
