@@ -277,7 +277,7 @@ infostruct event(int rng, infostruct character)
     }else{
         monster current_monster = monster_spawner(character.turn, rng);
 
-        int battle_turn = 0;
+        int battle_turn = 1;
         int player_defense = character.head.defense + character.chest.defense + character.leg.defense + character.boots.defense;
         if (character.turn % 10 != 0){
             cout << "You meet a monster " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
