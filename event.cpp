@@ -185,6 +185,7 @@ infostruct event(int rng, infostruct character)
             }
             if (input == "y"){
                 character.currentweapon = product;
+                character.coins -= price;
                 if (product.effect != "none")
                 {
                     cout << "This weapon is " << product.effect << "!" << endl;
@@ -239,6 +240,7 @@ infostruct event(int rng, infostruct character)
                 cin >> input;
             }
             if (input == "y"){
+                character.coins -= price;
                 if (product.type == "head")
                     character.head = product;
                 if (product.type == "chest")
