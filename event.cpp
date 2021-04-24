@@ -130,13 +130,13 @@ infostruct event(int rng, infostruct character)
         character.speed += character.level / 20; 
         character.crit += 2;
     }
-    else if (rng <= 400000 && rng > 300000)
+    else if (rng <= 350000 && rng > 300000)
     {
         cout << "You see a demon. He uses a knife to stabs your arm." << endl;
         cout << '"' << "You are really unlucky to meet me. " << '"';
-        character.health = character.health * 0.8;
+        character.health = character.health * 0.9;
     } 
-    else if (rng <= 450000 && rng > 400000)
+    else if (rng <= 450000 && rng > 350000)
     {
         string input;
         int price;
@@ -368,14 +368,19 @@ infostruct event(int rng, infostruct character)
             }
         }
         if (character.health > 0){
-            cout << "You have defeated the monster!! You find a bag of coins!!\n";
+            int lv = (rand() % 10) * (turn / 10 + 1);
             int money = (rand() % 30) * (character.turn / 10 + 1);
-            character.coins += money;
-            cout << "There are " << money << " coins inside.\n";
             int hp = (rand() % 20) * (character.turn / 10 + 1);
+            character.coins += money;
             character.health += hp;
+            character.level += lv;
+            cout << "You have defeated the monster!!\n";
+            cout << "You get exp. from the monster, you become stronger than before!!\n";
+            cout << "You find a bag of coins!! ";
+            cout << "There are " << money << " coins inside.\n";
             cout << "You feel exhausted after the battle and you decide to have a short break.\n";
             cout << "You feel better after the break( You have healed " << hp << " hp after the break).\n";
+
         }
     
     }
