@@ -24,9 +24,9 @@ void newcharacter()
     int health = 100;
     double crit = 10;
     int newturn = 0; // the number of iterations of rng the character is currently in
-    int newhealth = 100;
-    int newcoins = 100;
-    int newmaxhealth = 100;
+    int newhealth = 200;
+    int newcoins = 200;
+    int newmaxhealth = 200;
     double newcrit = 0;
     double level = 1;   // do we have any exp system?
     double speed = 5;   // would be better to start at 5
@@ -41,7 +41,7 @@ void newcharacter()
     newfile << level << endl;
     newfile << speed << endl;
     //equipment
-    newfile << "wooden_sword 1 none"<< endl; // weapon
+    newfile << "wooden_sword 20 none"<< endl; // weapon
     //format: "armor_name type(e.g. head(means helmet)) defense effect" example: "abc_chestplate chest 1 none"
     newfile << "0 0 0 0" << endl; // head 
     newfile << "0 0 0 0" << endl; // chest 
