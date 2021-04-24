@@ -40,6 +40,8 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "vector": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "__tuple": "cpp",
+        "array": "cpp"
     }
 }

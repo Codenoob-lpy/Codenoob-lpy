@@ -57,7 +57,7 @@ struct infostruct //use this struct tempalte to pass game status into / out of s
     int health;
     int coins;
     int maxhealth;
-    double crit;
+    double crit = 10;
     double level;
     double speed;
     weapon currentweapon;
