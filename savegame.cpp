@@ -10,7 +10,7 @@ void savegame(infostruct character)
     newfile << character.turn << endl;
     newfile << character.health << endl;
     newfile << character.coins << endl;
-    newfile << character.health << endl;
+    newfile << character.maxhealth << endl;
     newfile << character.crit << endl;
     newfile << character.level << endl;
     newfile << character.speed << endl;

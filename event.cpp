@@ -265,7 +265,7 @@ infostruct event(int rng, infostruct character)
             cout << "You start your journey again." << endl;
         }
     }else{
-        monster current_monster = monster_sponsor(character.turn, rng);
+        monster current_monster = monster_spawner(character.turn, rng);
 
         int battle_turn = 0;
         int player_defense = character.head.defense + character.chest.defense + character.leg.defense + character.boots.defense;
@@ -274,7 +274,7 @@ infostruct event(int rng, infostruct character)
         } else {
             cout << "You meet a boss monster " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
         }
-        while (current_monster.health > 0 and character.health > 0 ){
+        while (current_monster.health > 0 && character.health > 0 ){
             cout << "Turn " << battle_turn << " begins"<< endl;
             cout << "|monster hp: " << current_monster.health << " | player hp: " << character.health << " |\n";
             if (current_monster.speed > character.speed){
@@ -342,6 +342,7 @@ infostruct event(int rng, infostruct character)
         
         }
 
-    return character;
+    
     }
+    return character;
 }

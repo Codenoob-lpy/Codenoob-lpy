@@ -1,6 +1,6 @@
 #include "functions.h"
 
-monster monster_sponser(int turn, int rngoutput){
+monster monster_spawner(int turn, int rngoutput){
     monster current;
     char vowel[] = {'a','e', 'i', 'o', 'u'};
     int stringsize = rand() % 10 + 1;

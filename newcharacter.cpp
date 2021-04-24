@@ -25,6 +25,7 @@ void newcharacter()
     double crit = 10;
     int newturn = 0; // the number of iterations of rng the character is currently in
     int newhealth = 100;
+    int newcoins = 0;
     int newmaxhealth = 100;
     double newcrit = 0;
     double level = 1;   // do we have any exp system?
@@ -34,6 +35,7 @@ void newcharacter()
     newfile << newseed << endl;
     newfile << newturn << endl;
     newfile << newhealth << endl;
+    newfile << newcoins << endl;
     newfile << newmaxhealth << endl;
     newfile << newcrit << endl;
     newfile << level << endl;
