@@ -124,16 +124,61 @@ infostruct event(int rng, infostruct character)
     }
     if (rng <= 650000 && rng > 550000)
     {
-        cout << "You see an elf. He seems welcome to new comer and asks you a question." << endl;
+        cout << "You see an elf. She seems welcome to new comer and asks you a question." << endl;
         cout << '"' << "I can help you to enhance your speed and max health." << '"';
         character.maxhealth += 10;
         character.speed += 2; //dont sure that the status too high or what can be adjust
     }
     if (rng <= 850000 && rng > 750000)
     {
-        cout << "You see an evil. He seems welcome to new comer." << endl;
+        cout << "You see an evil guy. He uses a knife to stabs your arm." << endl;
         cout << '"' << "You are really unlucky to meet me. " << '"';
         character.health -= 20;
     } 
+    if (rng <= 450000 && rng > 350000)
+    {
+        string input;
+        int price;
+        cout << "You see a travelling merchant. He seems welcome to new customer." << endl;
+        cout << '"' << "Anything that you want to buy?. Armors or weapons? " << '"' << endl;
+        cout << "Tips: Please type 'armors' or 'weapons' if you want to buy\n";
+        cout << "Type 'n' if you do not want to buy anything";
+        cin >> input;
+        while ( input != "armors" or input != "weapons" or input != "n") 
+        {
+            if (input == "weapons"){
+                    weapon product = randomweapon(rng, character.turn, character.level);
+                    cout << "Here you are! It is a " << product.effect << ' '<< product.name << " and it can cause " << product.damage << endl;
+                    if (product.effect == "cursed"){
+                        cout << "It is cheap and worths 2 coins";
+                        price = 2;
+                    }else if (product.effect == "blessed"){
+                        cout << "It is a bit expensive and worths 5 coins";
+                        price = 5;
+                    }else if (product.effect == "epic"){
+                        cout << "It is a bit expensive and worths 10 coins";
+                        price = 10;
+                    }else if (product.effect == "legendary"){
+                        cout << "It is the most expensive and worths 20 coins";
+                        price = 20;
+                    }else if (product.effect == "broken"){
+                        cout << "It is not expensive at all and only worths 1 coins";
+                        price = 1;
+                    }
+                    cout << "Will you buy this weapon?" << endl;
+                    cout << "Tips: Please type 'y' if you want, other wise type 'n' " << endl;
+                    cin >> input;
+                    while (input != "y" or input != "n"){
+                        cin >> input;
+                    }
+            } else if (input == "armors"){
+                    armor product = randomarmor(rng, character.turn, character.level);
+                    string name = product.name;
+            }
+        }
+        
+        
+        
+    }
     return character;
 }
