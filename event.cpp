@@ -303,7 +303,7 @@ infostruct event(int rng, infostruct character)
             cout << "You meet a boss monster " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
         }
         while (current_monster.health > 0 && character.health > 0 ){
-            cout << "Turn " << battle_turn << " begins"<< endl;
+            cout << "Battle turn " << battle_turn << " begins"<< endl;
             cout << "|monster hp: " << current_monster.health << " | player hp: " << character.health << " |\n";
             if (current_monster.speed > character.speed){
                 if (current_monster.attack - player_defense > 0){
@@ -368,7 +368,7 @@ infostruct event(int rng, infostruct character)
             }
         }
         if (character.health > 0){
-            int lv = (rand() % 10) * (turn / 10 + 1);
+            int lv = (rand() % 10) * (character.turn / 10 + 1);
             int money = (rand() % 30) * (character.turn / 10 + 1);
             int hp = (rand() % 20) * (character.turn / 10 + 1);
             character.coins += money;

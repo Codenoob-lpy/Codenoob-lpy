@@ -4,11 +4,11 @@ monster monster_spawner(int turn, int rngoutput){
     monster current;
     char vowel[] = {'a','e', 'i', 'o', 'u'};
     int stringsize = rand() % 10 + 1;
-    current.name;
-    current.attack = 10;
+    current.name = "";
+    current.attack = 0;
     current.defense = 0;
-    current.speed = 1; 
-    current.health = 10;   
+    current.speed = 0; 
+    current.health = 0;   
     srand(rngoutput);
     for (int i = 0; i < stringsize; i++)
     {
@@ -30,17 +30,17 @@ monster monster_spawner(int turn, int rngoutput){
         current.name += x;       
     }
     cout << current.name;
-    if ( turn % 10 != 0){   // weak monster
+    if ( turn % 10 == 0 and turn != 0 ){   // weak monster
+        current.attack += 20 * (turn / 10);
+        current.defense += (turn / 10) * 10;
+        current.speed += 10 * (turn / 10);
+        current.health += 20 * (turn / 10);
+        
+    } else {
         current.attack += (turn / 10) * 10 + turn % 10;
         current.defense += turn % 10;
         current.speed += turn+turn/10;
         current.health += turn / 10 * 10 + 10 + turn % 10; 
-        
-    } else {
-        current.attack += 20 * (turn / 10);
-        current.defense += (turn / 10) * 10;
-        current.speed += 10 * (turn / 10);
-        current.health += 30 * (turn / 10);
-    }
+   }
     return current;
 }
