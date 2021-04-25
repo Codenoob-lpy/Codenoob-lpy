@@ -124,15 +124,15 @@ infostruct event(int rng, infostruct character)
     }
     else if (rng <= 750000 && rng > 700000)
     {
-        cout << "You see an angel. She seems welcome to new comer and asks you a question." << endl;
+        cout << "You see an angel. She seems nice." << endl;
         cout << '"' << "I can help you to enhance your speed and max health." << '"';
-        character.maxhealth += character.level / 10;
-        character.speed += character.level / 20; 
+        character.maxhealth += character.level / 3;
+        character.speed += character.level / 10; 
         character.crit += 2;
     }
     else if (rng <= 350000 && rng > 300000)
     {
-        cout << "You see a demon. He uses a knife to stabs your arm." << endl;
+        cout << "You meet a demon who sucks away your life force!" << endl;
         cout << '"' << "You are really unlucky to meet me. " << '"';
         character.health = character.health * 0.9;
     } 
@@ -140,27 +140,28 @@ infostruct event(int rng, infostruct character)
     {
         string input;
         int price;
-        cout << "You see a travelling merchant. He seems welcome to new customer." << endl;
+        cout << "You see a travelling merchant. He seems welcome to new customers." << endl;
         cout << '"' << "Anything that you want to buy?. Armor or weapon? " << '"' << endl;
         cout << "Tips: Please type 'armor' or 'weapon' if you want to buy\n";
         cout << "Type 'n' if you do not want to buy anything: ";
         cin >> input;
         while (input != "armor" && input != "weapon" && input != "n")
         {
+            genericinput(input, character);
             cout << "Tips: Please type 'armor' or 'weapon' if you want to buy\n";
             cin >> input;
         }
-        genericinput(input, character);
+        
         
         if (input == "weapon"){
             weapon product = randomweapon(rng, character.turn, character.level);
             if (product.effect != "none"){
-                cout << "Here you are! It is a " << product.effect << ' '<< product.name << " and it can deal " << product.damage << " damages"<< endl;
+                cout << "Here you are! It is a " << product.effect << ' '<< product.name << " and it can deal " << product.damage << " damage"<< endl;
             }else {
-                cout << "Here you are! It is a " << product.name << " and it can deal " << product.damage << " damages"<< endl;            
+                cout << "Here you are! It is a " << product.name << " and it can deal " << product.damage << " damage"<< endl;            
             }
             if (product.effect == "cursed"){
-                price = 3 * character.level;
+                price = (int)(0.5 * character.level);
                 cout << "It is cheap and is worth "<< price << " coins\n";
             }else if (product.effect == "blessed"){
                 price = 10 * character.level;
@@ -174,6 +175,9 @@ infostruct event(int rng, infostruct character)
             }else if (product.effect == "broken"){
                 price = character.level;
                 cout << "It is not expensive at all and is worth "<< price << " coins\n";
+            }else{
+                price = 2 * character.level;
+                cout << "It is worth "<< price << " coins\n";
             }
             cout << "Will you buy this weapon?" << endl;
             cout << "Tips: Please type 'y' if you want, other wise type 'n' :" << endl;
@@ -220,9 +224,9 @@ infostruct event(int rng, infostruct character)
         } else if (input == "armor"){
             armor product = randomarmor(rng, character.turn, character.level);
             if (product.effect != "none"){
-                cout << "Here you are! It is a " << product.effect << ' '<< product.type << " armor and it can defense " << product.defense << " damages"<< endl;
+                cout << "Here you are! It is a " << product.effect << ' '<< product.type << " armor and it can defense " << product.defense << " damage"<< endl;
             }else{
-                cout << "Here you are! It is a " << product.type << " armor and it can defense " << product.defense << " damages"<< endl;
+                cout << "Here you are! It is a " << product.type << " armor and it can defense " << product.defense << " damage"<< endl;
             }
             if (product.effect == "cursed"){
                 price = 3 * character.level;
@@ -239,6 +243,9 @@ infostruct event(int rng, infostruct character)
             }else if (product.effect == "broken"){
                 price = character.level;
                 cout << "It is not expensive at all and is worth "<< price << " coins\n";
+            }else{
+                price = 5 * character.level;
+                cout << "It is worth "<< price << " coins\n";
             }
             cout << "Will you buy this armor?" << endl;
             cout << "Tips: Please type 'y' if you want, other wise type 'n' :" << endl;
@@ -297,17 +304,19 @@ infostruct event(int rng, infostruct character)
 
         int battle_turn = 1;
         int player_defense = character.head.defense + character.chest.defense + character.leg.defense + character.boots.defense;
-        if (character.turn % 10 != 0){
-            cout << "You meet a monster " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
+        if (character.turn % 10 != 0 || character.turn == 0){
+            cout << "You meet a monster, a " << current_monster.type << " named " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
         } else {
-            cout << "You meet a boss monster " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
+            cout << "You meet a boss monster, a " << current_monster.type  << " named " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
         }
+        cout << current_monster.health;
         while (current_monster.health > 0 && character.health > 0 ){
-            cout << "Battle turn " << battle_turn << " begins"<< endl;
+            cout << "\nBattle turn " << battle_turn << " begins"<< endl;
+            cout << current_monster.name << " the " << current_monster.type << " V.S. " << character.name << endl;
             cout << "|monster hp: " << current_monster.health << " | player hp: " << character.health << " |\n";
             if (current_monster.speed > character.speed){
                 if (current_monster.attack - player_defense > 0){
-                    cout << "It hits you with " << current_monster.attack - player_defense <<" damages." << endl;
+                    cout << "It hits you with " << current_monster.attack - player_defense <<" damage." << endl;
                     character.health -= current_monster.attack - player_defense;
                 }else{
                     cout << "It hits you but you guard most of the damage because of sufficient defense." << endl;
@@ -316,10 +325,10 @@ infostruct event(int rng, infostruct character)
                 if (character.health <= 0){
                     break;
                 }
-                if (rand() % 100 <= character.crit){
+                if (rand() % 100 <= character.crit * 2){
                     cout << "Lucky!! You make a critical hit!!" << endl;
                     if (character.currentweapon.damage * 2 - current_monster.defense > 0){
-                        cout << "You have dealt " << character.currentweapon.damage * 2 - current_monster.defense << " damages to the monster.\n";
+                        cout << "You have dealt " << character.currentweapon.damage * 2 - current_monster.defense << " damage to the monster.\n";
                         current_monster.health -= character.currentweapon.damage * 2 - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
@@ -327,7 +336,7 @@ infostruct event(int rng, infostruct character)
                     }
                 }else {
                     if (character.currentweapon.damage - current_monster.defense > 0){
-                        cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << " damages to the monster.\n";
+                        cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << " damage to the monster.\n";
                         current_monster.health -= character.currentweapon.damage - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
@@ -335,10 +344,10 @@ infostruct event(int rng, infostruct character)
                     }
                 }
             } else {
-                if (rand() % 100 <= character.crit){
+                if (rand() % 100 <= character.crit * 4){
                     cout << "Lucky!! You make a critical hit!!" << endl;
                     if (character.currentweapon.damage * 2 - current_monster.defense > 0){
-                        cout << "You have dealt " << character.currentweapon.damage * 2 - current_monster.defense << " damages to the monster.\n";
+                        cout << "You have dealt " << character.currentweapon.damage * 2 - current_monster.defense << " damage to the monster.\n";
                         current_monster.health -= character.currentweapon.damage * 2 - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
@@ -347,7 +356,7 @@ infostruct event(int rng, infostruct character)
 
                 }else {
                     if (character.currentweapon.damage - current_monster.defense > 0){
-                        cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << " damages to the monster.\n";
+                        cout << "You have dealt " << character.currentweapon.damage - current_monster.defense << " damage to the monster.\n";
                         current_monster.health -= character.currentweapon.damage - current_monster.defense;
                     }else{
                         cout << "It guards most of the damage because of sufficient defense." << endl;
@@ -357,14 +366,20 @@ infostruct event(int rng, infostruct character)
                         break;
                     }
                     if (current_monster.attack - player_defense > 0){
-                        cout << "It hits you with " << current_monster.attack - player_defense <<" damages." << endl;
+                        cout << "It hits you with " << current_monster.attack - player_defense <<" damage." << endl;
                         character.health -= current_monster.attack - player_defense;
                     }else{
                         cout << "It hits you but you guard most of the damage because of sufficient defense." << endl;
                         character.health -= character.turn/10 + 1;
                     }
-                }
+                }            
+            }
             battle_turn++;
+            string input;
+            while (input != "c" && input != "C")
+            {
+                cout << "\nType C and press enter to continue: ";
+                cin >> input;
             }
         }
         if (character.health > 0){
@@ -374,13 +389,35 @@ infostruct event(int rng, infostruct character)
             character.coins += money;
             character.health += hp;
             character.level += lv;
-            cout << "You have defeated the monster!!\n";
+            cout << "\nYou have defeated the monster!!\n";
             cout << "You get exp. from the monster, you become stronger than before!!\n";
             cout << "You find a bag of coins!! ";
             cout << "There are " << money << " coins inside.\n";
             cout << "You feel exhausted after the battle and you decide to have a short break.\n";
-            cout << "You feel better after the break( You have healed " << hp << " hp after the break).\n";
+            cout << "You feel better after the break( You have healed " << hp << " hp after the break).\n\n";
+            string input;
+            while (input != "c" && input != "C")
+            {
+                cout << "\nType C and press enter to continue: ";
+                cin >> input;
+            }
 
+        }
+        else    
+        {
+            cout << "|monster hp: " << current_monster.health << " | player hp: " << character.health << " |\n";
+            cout << current_monster.name << " the " << current_monster.type << " killed you...\n";
+            int score = (int) (character.level * character.turn);
+            cout << "YOU DIED!!!\nScore: " << score << endl;
+            string temp = character.name + ".txt";
+            char * removefile = new char [temp.length() + 1];
+            strcpy(removefile, temp.c_str());
+            remove(removefile);
+
+
+            delete[] removefile;
+            cout << "Thank you for playing RNG ADVENTURE!\n"; 
+            exit(EXIT_SUCCESS);
         }
     
     }

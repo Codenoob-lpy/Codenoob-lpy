@@ -58,8 +58,8 @@ armor randomarmor(int rngoutput, int turn, int level)
         name = name + s + '_' + type; 
     else
         name = type + "_of_" + name;
-    double formula = (rand() % 5) * level * 1.5 + turn * 0.1 ;
-    defense = (int)formula;
+    double formula = (rand() % 5) * level + turn * 0.1 ;
+    defense = (int)formula + 1;
     effect =  effects[rand() % 19];
     if (effect == "cursed")
         defense /= 1.5;

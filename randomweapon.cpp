@@ -41,8 +41,8 @@ weapon randomweapon(int rngoutput, int turn, int level)
         name = name + s + '_' + type; 
     else
         name = type + "_of_" + name;
-    double formula = (rand() % 20) * level + turn;
-    damage = (int)formula;
+    double formula = (rand() % 20) * turn * 0.25;
+    damage = (int)formula + 1;
     effect =  effects[rand() % 19];
     if (effect == "cursed")
         damage /= 2;

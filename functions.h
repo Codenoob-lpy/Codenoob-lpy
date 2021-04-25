@@ -43,6 +43,7 @@ struct armor
 struct monster
 {
     string name;
+    string type;
     int attack;
     int defense;
     int speed;

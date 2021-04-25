@@ -45,7 +45,7 @@ infostruct blacksmith (infostruct character, int rngoutput)
     {
         if (price <= character.coins)
         {
-        character.currentweapon.damage += rand() % 100 + 10;
+        character.currentweapon.damage += rand() % 40 + 10;
         character.currentweapon.effect == "reforged";
         character.coins -= price;
 
