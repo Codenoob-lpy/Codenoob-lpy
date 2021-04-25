@@ -7,7 +7,7 @@ infostruct event(int rng, infostruct character)
         weapon loot = randomweapon(rng, character.turn, character.level);
         string name = loot.name;
         replace( name.begin(), name.end(), '_', ' ');
-        cout << "You came across a chest and found " << name << ". It does " << loot.damage << " damage.\nDo you want to discard your current weapon and use " << name << "?\n";
+        cout << "You came across a rare chest and found " << name << ". It does " << loot.damage << " damage.\nDo you want to discard your current weapon and use " << name << "?\n";
         if (loot.effect != "none")
         {
             cout << "You feel a presence of magic within this weapon."<< endl;
@@ -53,7 +53,7 @@ infostruct event(int rng, infostruct character)
         armor loot = randomarmor(rng, character.turn, character.level);
         string name = loot.name;
         replace( name.begin(), name.end(), '_', ' ');
-        cout << "You came across a chest and found " << name << ". It has " << loot.defense << " defense.\nDo you want to discard your current " << loot.type << " armor and use " << name << "?\n";
+        cout << "You came across a rare chest and found " << name << ". It has " << loot.defense << " defense.\nDo you want to discard your current " << loot.type << " armor and use " << name << "?\n";
         if (loot.effect != "none")
         {
             cout << "You feel a presence of magic within this armor."<< endl;
@@ -164,13 +164,13 @@ infostruct event(int rng, infostruct character)
                 price = (int)(0.5 * character.level);
                 cout << "It is cheap and is worth "<< price << " coins\n";
             }else if (product.effect == "blessed"){
-                price = 10 * character.level;
+                price = 7 * character.level;
                 cout << "It is a bit expensive and is worth "<< price << " coins\n";
             }else if (product.effect == "epic"){
-                price = 20 * character.level;
+                price = 6 * character.level;
                 cout << "It is a bit expensive and is worth "<< price << " coins\n";
             }else if (product.effect == "legendary"){
-                price = 50 * character.level;
+                price = 8 * character.level;
                 cout << "It is the most expensive and is worth "<< price << " coins\n";
             }else if (product.effect == "broken"){
                 price = character.level;
@@ -180,11 +180,11 @@ infostruct event(int rng, infostruct character)
                 cout << "It is worth "<< price << " coins\n";
             }
             cout << "Will you buy this weapon?" << endl;
-            cout << "Tips: Please type 'y' if you want, other wise type 'n' :" << endl;
+            cout << "Tips: Please type 'y' if you want, other wise type 'n' : ";
             cin >> input;
             while (input != "y" && input != "n"){
                 genericinput(input, character);
-                cout << "Tips: Please type 'y' if you want, otherwise type 'n' :" << endl;
+                cout << "Tips: Please type 'y' if you want, otherwise type 'n' : ";
                 cin >> input;
             }
             if (input == "y"){
@@ -248,11 +248,11 @@ infostruct event(int rng, infostruct character)
                 cout << "It is worth "<< price << " coins\n";
             }
             cout << "Will you buy this armor?" << endl;
-            cout << "Tips: Please type 'y' if you want, other wise type 'n' :" << endl;
+            cout << "Tips: Please type 'y' if you want, other wise type 'n' : ";
             cin >> input;
             while (input != "y" && input != "n"){
                 genericinput(input, character);
-                cout << "Tips: Please type 'y' if you want, otherwise type 'n' :" << endl;
+                cout << "Tips: Please type 'y' if you want, otherwise type 'n' : ";
                 cin >> input;
             }
             if (input == "y"){
@@ -309,7 +309,7 @@ infostruct event(int rng, infostruct character)
         } else {
             cout << "You meet a boss monster, a " << current_monster.type  << " named " << '"' << current_monster.name << '"' << "!!! You have to battle with it!!!" << endl;
         }
-        cout << current_monster.health;
+
         while (current_monster.health > 0 && character.health > 0 ){
             cout << "\nBattle turn " << battle_turn << " begins"<< endl;
             cout << current_monster.name << " the " << current_monster.type << " V.S. " << character.name << endl;
@@ -384,7 +384,7 @@ infostruct event(int rng, infostruct character)
         }
         if (character.health > 0){
             int lv = (rand() % 10) * (character.turn / 10 + 1);
-            int money = (rand() % 30) * (character.turn / 10 + 1);
+            int money = (rand() % 30) * (character.turn / 10 + 1) * 2;
             int hp = (rand() % 20) * (character.turn / 10 + 1);
             character.coins += money;
             character.health += hp;
