@@ -390,7 +390,7 @@ infostruct event(int rng, infostruct character)
             character.health += hp;
             character.level += lv;
             cout << "\nYou have defeated the monster!!\n";
-            cout << "You get exp. from the monster, you become stronger than before!!\n";
+            cout << "You get experience from the monster, you become stronger than before!!\n";
             cout << "You find a bag of coins!! ";
             cout << "There are " << money << " coins inside.\n";
             cout << "You feel exhausted after the battle and you decide to have a short break.\n";
@@ -398,7 +398,7 @@ infostruct event(int rng, infostruct character)
             string input;
             while (input != "c" && input != "C")
             {
-                cout << "\nType C and press enter to continue: ";
+                cout << "Type C and press enter to continue: ";
                 cin >> input;
             }
 

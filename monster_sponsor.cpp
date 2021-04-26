@@ -34,16 +34,16 @@ monster monster_spawner(int turn, int rngoutput){
     int index = rand() % 357;
     current.type = types[index];
      if ( turn % 10 == 0 && turn != 0 ){   // boss monster
-        current.attack += 10 * (turn / 10);
+        current.attack += 12 * (turn / 10);
         current.defense += (turn / 10) * 10;
         current.speed += 2 * (turn / 10);
-        current.health += 100 * (turn / 10);
+        current.health += 120 * (turn / 10);
         
     } else {
         current.attack += (turn / 10) * 15 + turn % 10;
         current.defense += turn % 10;
         current.speed += turn+turn/10;
-        current.health += turn / 10 * 25 + 10 + turn % 10; 
+        current.health += turn / 10 * 30 + 10 + turn % 10; 
    }
     return current;
 }

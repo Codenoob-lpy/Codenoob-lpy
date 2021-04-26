@@ -24,9 +24,9 @@ void genericinput(string input, infostruct character)
     }
     if (input == "about")
     {
-        cout << "This is a text-based adventure game and the player have to go into the infinite dungeon as deep as possible.\n";  
-        cout << "Player needs to fight with monsters which will appear in the dungeon and boss monsters will appear every ten battles. There are some special events as well. Some of them may give the player blesses/curses and some of them may give the player tasks to do.\n"; 
-        cout << "Player has to make different decisions such as battling, using items during each battle to survive in the dungeon. Also, player can get rewards like items, food and weapons (rare) after every battle.\n\n";
+        cout << "This is a text-based adventure game and the player \nhave to go into the infinite dungeon as deep as possible.\n";  
+        cout << "Player needs to fight with monsters which will appear \nin the dungeon and boss monsters will appear every ten battles. \nThere are some special events as well. Some of them may give the player blesses/curses and some of them sell the player equipment.\n"; 
+        cout << "Player has to make different decisions such as battling,\n using items during each battle to survive in the dungeon. Also,\n player can get rewards like items, food and weapons (rare) after every battle.\n\n";
     }
     //
     // view character info
